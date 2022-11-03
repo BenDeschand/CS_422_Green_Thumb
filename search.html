@@ -1,15 +1,116 @@
 <!DOCTYPE html>
 <html>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<head>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="navbar-top.css"> -->
+  <link rel="stylesheet" href="style.css">
+  <title>Search Page</title>
+
+  <script>
+    $(document).on('click', "#searchBtn", function(evt) {
+      $("#searchResults").css("visibility", "visible");
+    });
+
+    $(document).on('click', "#addBtn", function(evt) {
+      $("#plantList").append("<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>Strawberry</div><div class='col-1'><button class='btn btnColor' type='button' id='addBtn'>Add</button></div></div></li>");
+    });
+  </script>
+</head>
 <body>
-    <div id="nav-placeholder">
+  <div class="container-fullwidth">
+    <!-- <div id="nav-placeholder">
+    </div> -->
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-3 d-flex flex-column justify-content-center colPad">
+        <div class="card  addArea" id="plantsAdded">
+          <div class="card-header btnColor">
+            Featured
+          </div>
+          <ul class="list-group list-group-flush" id="plantList">
+            <li class="list-group-item list-group-item-dark">
+              <div class="row">
+                <div class="col-8">
+                  Blueberry
+                </div>
+                <div class="col-1">
+                  <button class="btn btnColor" type="button" id="RemoveBtn">Remove</button>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-dark">
+              <div class="row">
+                <div class="col-8">
+                  Beets
+                </div>
+                <div class="col-1">
+                  <button class="btn btnColor" type="button" id="RemoveBtn">Remove</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- End of Left Column -->
+
+      <!-- Middle Column -->
+      <div class="col-6 d-flex flex-column justify-content-center colPad">
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <button class="btn btnColor" type="button" id="searchBtn">Search</button>
+          </div>
+          <input type="text" class="form-control" placeholder="Ex: Strawberry" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        </div>
+        <br>
+        <div class="card respArea" id="searchResults">
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item list-group-item-dark">
+              <div class="row">
+                <div class="col-8">
+                  Strawberry
+                </div>
+                <div class="col-1">
+                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-dark">
+              <div class="row">
+                <div class="col-8">
+                  Blueberry
+                </div>
+                <div class="col-1">
+                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item list-group-item-dark">
+              <div class="row">
+                <div class="col-8">
+                  Beets
+                </div>
+                <div class="col-1">
+                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- End of Middle Column -->
     </div>
-    <h1>Search page</h1>
-    <script>
+  </div>
+    <!-- <script>
         $(function(){
           $("#nav-placeholder").load("http://localhost:8888/Desktop/CS_422_Green_Thumb/navbar-top.html");
         });
-        </script>
+    </script> -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </body>
 
 </html>

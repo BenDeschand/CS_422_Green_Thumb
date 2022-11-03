@@ -4,14 +4,42 @@
     box-sizing: border-box;
 }
 
-html,
+/* html,
 body {
     height: 100vh;
     display: grid;
     place-items: center;
     font-family: sans-serif;
     background-color: #f3f8fe;
+} */
+
+/* Search */
+.colPad {
+    padding-top: 5%;
+    align-items: center;
 }
+
+.respArea {
+    height: auto;
+    width: 70%;
+    visibility: hidden;
+}
+
+.addArea {
+    height: auto;
+    width: 85%;
+}
+
+.searchItems {
+    padding-left: 10%;
+}
+
+.btnColor {
+    background-color: greenyellow;
+}
+/* Search End */
+
+/* Calendar */
 .calendar {
     height: max-content;
     width: max-content;
@@ -176,3 +204,4 @@ body {
 .month-list > div > div:hover {
     background-color: green;
 }
+/* Calendar End */
