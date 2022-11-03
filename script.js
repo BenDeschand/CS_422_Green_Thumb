@@ -109,6 +109,4 @@ addPlantButton.onclick = () => {
     document.getElementById('add-to-schedule-form').style.display = 'block';
 }
 
-  createCalendar(curr_month.value, curr_year.value)
-}
 
