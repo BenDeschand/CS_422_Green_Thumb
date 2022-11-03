@@ -84,7 +84,6 @@ document.querySelector('#next-year').onclick = () => {
 }
 
 let addPlantButton = document.querySelector('.add-to-schedule-button')
-let addPlantForm = document.querySelector('.add-to-schedule-form')
 
 addPlantButton.onclick = () => {
     document.getElementById('add-to-schedule-form').style.display = 'block';
