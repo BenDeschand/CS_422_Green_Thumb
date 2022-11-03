@@ -23,8 +23,7 @@ generateCalendar = (month, year) => {
   if (month > 11 || month < 0) month = currDate.getMonth()
   if (!year) year = currDate.getFullYear()
 
-  let curr_month = `${month_names[month]}`
-  month_picker.innerHTML = curr_month
+  month_picker.innerHTML = `${month_names[month]}`
   calendar_header_year.innerHTML = year
 
   // get first day of month
@@ -82,4 +81,11 @@ document.querySelector('#prev-year').onclick = () => {
 document.querySelector('#next-year').onclick = () => {
   ++curr_year.value
   generateCalendar(curr_month.value, curr_year.value)
+}
+
+let addPlantButton = document.querySelector('.add-to-schedule-button')
+let addPlantForm = document.querySelector('.add-to-schedule-form')
+
+addPlantButton.onclick = () => {
+    document.getElementById('add-to-schedule-form').style.display = 'block';
 }
