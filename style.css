@@ -1,30 +1,3 @@
-:root 
-{
-    --dark-body: #4d4c5a;
-    --dark-main: #141529;
-    --dark-second: #79788c;
-    --dark-hover: #323048;
-    --dark-text: #f8fbff;
-    --light-body: #f3f8fe;
-    --light-main: #fdfdfd;
-    --light-second: green;
-    --light-hover: green;
-    --light-text: green;
-    --blue: black;
-    --white: #fff;
-    --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    --font-family: sans-serif;
-    color: green;
-}
-
-.light {
-    --bg-body: var(--light-body);
-    --bg-main: var(--light-main);
-    --bg-second: var(--light-second);
-    --color-hover: var(--light-hover);
-    --color-txt: var(--light-text);
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -33,24 +6,26 @@
 
 html,
 body {
-    height: 100vh;
+    height: 100%;
     display: grid;
     place-items: center;
-    font-family: var(--font-family);
-    background-color: var(--bg-body);
+    font-family: sans-serif;
+    background-color: #f3f8fe;
 }
+
+/* Calendar */
 .calendar {
     height: max-content;
     width: max-content;
-    background-color: var(--bg-main);
-    border-radius: 20px;
+    background-color: white;
+    border-radius: 30px;
     padding: 20px;
     position: relative;
     overflow: hidden;
 }
 
 .light .calendar {
-    box-shadow: var(--shadow);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;;
 }
 
 .calendar-header {
@@ -59,7 +34,7 @@ body {
     align-items: center;
     font-size: 25px;
     font-weight: 600;
-    color: var(--color-txt);
+    color: green;
     padding: 10px;
 }
 
@@ -104,67 +79,12 @@ body {
 }
 
 .calendar-days div:hover span {
-    transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-}
-
-.calendar-days div span:nth-child(1),
-.calendar-days div span:nth-child(3) {
-    width: 2px;
-    height: 0;
-    background-color: var(--color-txt);
-}
-
-.calendar-days div:hover span:nth-child(1),
-.calendar-days div:hover span:nth-child(3) {
-    height: 100%;
-}
-
-.calendar-days div span:nth-child(1) {
-    bottom: 0;
-    left: 0;
-}
-
-.calendar-days div span:nth-child(3) {
-    top: 0;
-    right: 0;
-}
-
-.calendar-days div span:nth-child(2),
-.calendar-days div span:nth-child(4) {
-    width: 0;
-    height: 2px;
-    background-color: var(--color-txt);
-}
-
-.calendar-days div:hover span:nth-child(2),
-.calendar-days div:hover span:nth-child(4) {
-    width: 100%;
-}
-
-.calendar-days div span:nth-child(2) {
-    top: 0;
-    left: 0;
-}
-
-.calendar-days div span:nth-child(4) {
-    bottom: 0;
-    right: 0;
-}
-
-.calendar-days div:hover span:nth-child(2) {
-    transition-delay: 0.2s;
-}
-
-.calendar-days div:hover span:nth-child(3) {
-    transition-delay: 0.4s;
-}
-
-.calendar-days div:hover span:nth-child(4) {
-    transition-delay: 0.6s;
+    transition: width 0.2s linear, height 0.2s linear;
 }
 
 .calendar-days div.curr-date,
 .calendar-days div.curr-date:hover {
+
     background-color: lightgray;
     color: darkgreen;
     border-radius: 50%;
@@ -174,14 +94,14 @@ body {
     display: none;
 }
 
-.month-picker {
+.chooseMonth {
     padding: 5px 10px;
     border-radius: 10px;
     cursor: pointer;
 }
 
-.month-picker:hover {
-    background-color: var(--blue);
+.chooseMonth:hover {
+    background-color: blue;
 }
 
 .year-picker {
@@ -200,7 +120,7 @@ body {
 }
 
 .year-change:hover {
-    background-color: var(--color-hover);
+    background-color: green;
 }
 
 .calendar-footer {
@@ -210,14 +130,14 @@ body {
     align-items: center;
 }
 
-.toggle {
+/* .toggle {
     display: flex;
 }
 
 .toggle span {
     margin-right: 10px;
     color: var(--color-txt);
-}
+} */
 
 .month-list {
     position: absolute;
@@ -225,7 +145,7 @@ body {
     height: 100%;
     top: 0;
     left: 0;
-    background-color: var(--bg-main);
+    background-color: white;
     padding: 20px;
     grid-template-columns: repeat(3, auto);
     gap: 5px;
@@ -239,7 +159,7 @@ body {
     transform: scale(1);
     visibility: visible;
     pointer-events: visible;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s linear;
 }
 
 .month-list > div {
@@ -253,10 +173,11 @@ body {
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
-    color: var(--color-txt);
+    color: green;
 }
 
 .month-list > div > div:hover {
+
     background-color: var(--color-hover);
 }
 
@@ -330,3 +251,8 @@ label {
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: darkseagreen;}
+
+    background-color: green;
+}
+/* Calendar End */
+

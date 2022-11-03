@@ -3,13 +3,25 @@
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <body class="light">
+
+  <div id="nav-placeholder">
+  </div>
+
   <div class="calendar">
     <div class="calendar-header">
-      <span class="month-picker" id="month-picker">April</span>
+      <!--       <span class="chooseMonth" id="chooseMonth">January</span> -->
+      <span class="month-change" id="previous-month">
+        <pre><</pre>
+      </span>
+      <span id="month">November</span>
+      <span class="month-change" id="next-month">
+        <pre>></pre>
+      </span>
       <div class="year-picker">
-        <span class="year-change" id="prev-year">
+        <span class="year-change" id="previous-year">
           <pre><</pre>
         </span>
         <span id="year">2022</span>
@@ -60,6 +72,11 @@
   </div>
 
   <script src="script.js"></script>
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("http://localhost:8888/Desktop/CS_422_Green_Thumb/navbar-top.html");
+    });
+    </script>
 </body>
 
 </html>

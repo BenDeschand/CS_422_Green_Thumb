@@ -1,0 +1,25 @@
+/* Search */
+.colPad {
+    padding-top: 5%;
+    align-items: center;
+}
+
+.respArea {
+    height: auto;
+    width: 70%;
+    visibility: hidden;
+}
+
+.addArea {
+    height: auto;
+    width: 85%;
+}
+
+.searchItems {
+    padding-left: 10%;
+}
+
+.btnColor {
+    background-color: greenyellow;
+}
+/* Search End */
