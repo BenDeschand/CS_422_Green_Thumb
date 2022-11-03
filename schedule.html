@@ -6,8 +6,10 @@
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <body class="light">
+
   <div id="nav-placeholder">
   </div>
+
   <div class="calendar">
     <div class="calendar-header">
       <!--       <span class="chooseMonth" id="chooseMonth">January</span> -->
@@ -43,6 +45,32 @@
 
     <div class="month-list"></div>
   </div>
+
+  <form class="add-to-schedule-form" id = "add-to-schedule-form">
+    <h1 style="text-align: center">Add To Your Schedule</h1><br>
+    <div formElements>
+      <label for="dropdown">Select Plant:</label>
+      <div class="dropdown" id = "dropdown">
+        <button class="dropbtn">Your Plants</button>
+        <div class="dropdown-content">
+          <a href="#">Strawberries</a>
+          <a href="#">Tomatoes</a>
+          <a href="#">Grapes</a>
+        </div>
+      </div>
+      <br>
+      <label for="dailyFreq">Daily frequency:</label>
+      <input type="text" name = "dailyFrequency" id = "dailyFreq">
+      <br>
+      <label for="weeklyFreq">Weekly frequency:</label>
+      <input type="text" name = "weeklyFrequency" id = "weeklyFreq">
+    </div>
+  </form>
+
+  <div class = "add-to-schedule-button">
+    <span>Add Plant To Watering Schedule</span>
+  </div>
+
   <script src="script.js"></script>
   <script>
     $(function(){
