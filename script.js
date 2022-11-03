@@ -14,6 +14,7 @@ createCalendar = (month, year) => {
 
   let calendar_days = calendar.querySelector('.calendar-days')
   let calendar_header_year = calendar.querySelector('#year')
+  let calendar_months = calendar.querySelector('.month')
 
   let days_of_month = [31, getFebDays(year), 31, 30, 31, 30, 31, 31, 30, 31, 30, 31]
 
@@ -24,7 +25,8 @@ createCalendar = (month, year) => {
   if (!year) year = currDate.getFullYear()
 
   let curr_month = `${month_names[month]}`
-  month_picker.innerHTML = curr_month
+  //month_picker.innerHTML = curr_month
+  //calendar_months.innerHTML = curr_month
   calendar_header_year.innerHTML = year
 
   // get first day of month
@@ -61,11 +63,7 @@ month_names.forEach((e, index) => {
   month_list.appendChild(month)
 })
 
-let month_picker = calendar.querySelector('#chooseMonth')
-
-month_picker.onclick = () => {
-  month_list.classList.add('show')
-}
+let month_picker = calendar.querySelector('#month')
 
 let currDate = new Date()
 
@@ -73,6 +71,22 @@ let curr_month = { value: currDate.getMonth() }
 let curr_year = { value: currDate.getFullYear() }
 
 createCalendar(curr_month.value, curr_year.value)
+
+document.querySelector('#previous-month').onclick = () => {
+  //curr_month = curr_month.value;
+  console.log(month_names[curr_month.value - 1])
+  month_picker.innerHTML = month_names[curr_month.value - 1]
+  --curr_month.value
+  createCalendar(curr_month.value, curr_year.value)
+}
+
+document.querySelector('#next-month').onclick = () => {
+  //curr_month = curr_month.value;
+  console.log(month_names[curr_month.value + 1])
+  month_picker.innerHTML = month_names[curr_month.value + 1]
+  ++curr_month.value
+  createCalendar(curr_month.value, curr_year.value)
+}
 
 document.querySelector('#previous-year').onclick = () => {
   --curr_year.value
