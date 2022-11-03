@@ -10,7 +10,7 @@ getFebDays = (year) => {
   return isLeapYear(year) ? 29 : 28
 }
 
-generateCalendar = (month, year) => {
+createCalendar = (month, year) => {
 
   let calendar_days = calendar.querySelector('.calendar-days')
   let calendar_header_year = calendar.querySelector('#year')
@@ -36,11 +36,11 @@ generateCalendar = (month, year) => {
     if (i >= first_day.getDay()) {
       day.classList.add('calendar-day-hover')
       day.innerHTML = i - first_day.getDay() + 1
-      day.innerHTML += `<span></span>
-                            <span></span>
-                            <span></span>
-                            <span></span>`
-      if (i - first_day.getDay() + 1 === currDate.getDate() && year === currDate.getFullYear() && month === currDate.getMonth()) {
+      // day.innerHTML += `<span></span>
+      //                       <span></span>
+      //                       <span></span>
+      //                       <span></span>`
+      if (i - first_day.getDay() + 1 == currDate.getDate() && year == currDate.getFullYear() && month == currDate.getMonth()) {
         day.classList.add('curr-date')
       }
     }
@@ -56,12 +56,12 @@ month_names.forEach((e, index) => {
   month.querySelector('div').onclick = () => {
     month_list.classList.remove('show')
     curr_month.value = index
-    generateCalendar(index, curr_year.value)
+    createCalendar(index, curr_year.value)
   }
   month_list.appendChild(month)
 })
 
-let month_picker = calendar.querySelector('#month-picker')
+let month_picker = calendar.querySelector('#chooseMonth')
 
 month_picker.onclick = () => {
   month_list.classList.add('show')
@@ -72,14 +72,14 @@ let currDate = new Date()
 let curr_month = { value: currDate.getMonth() }
 let curr_year = { value: currDate.getFullYear() }
 
-generateCalendar(curr_month.value, curr_year.value)
+createCalendar(curr_month.value, curr_year.value)
 
-document.querySelector('#prev-year').onclick = () => {
+document.querySelector('#previous-year').onclick = () => {
   --curr_year.value
-  generateCalendar(curr_month.value, curr_year.value)
+  createCalendar(curr_month.value, curr_year.value)
 }
 
 document.querySelector('#next-year').onclick = () => {
   ++curr_year.value
-  generateCalendar(curr_month.value, curr_year.value)
+  createCalendar(curr_month.value, curr_year.value)
 }
