@@ -1,10 +1,54 @@
 <!DOCTYPE html>
 <html>
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<style>
+  .card{
+    margin-top: 5%;
+    padding: 2%;
+  }
+</style>
 <body>
     <div id="nav-placeholder">
     </div>
-    <h1>Plants page</h1>
+    <div class="card border-2">
+      <div class="card-header" style="background-color: greenyellow;text-align: center;font-size:x-large;">My Plants</div>
+      <div class="card-body">
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th scope="col">Number</th>
+              <th scope="col">Plants</th>
+              <th scope="col">Watering</th>
+              <th scope="col">Pest</th>
+              <th scope="col">Disease</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>Strawberry</td>
+              <td>Once daily</td>
+              <td>Bugs</td>
+              <td>Strawburuto</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Sunflower</td>
+              <td>Twice Weekly</td>
+              <td>Critters</td>
+              <td>Black Death</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td>Tomato</td>
+              <td>Never</td>
+              <td>None</td>
+              <td>Unkillable</td>
+            </tr>
+          </tbody>
+        </table>
+      </div> 
+    </div>
     <script>
         $(function(){
           $("#nav-placeholder").load("http://localhost:8888/Desktop/CS_422_Green_Thumb/navbar-top.html");
