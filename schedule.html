@@ -3,9 +3,11 @@
 <head>
   <link rel="stylesheet" href="style.css">
 </head>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 <body class="light">
-
+  <div id="nav-placeholder">
+  </div>
   <div class="calendar">
     <div class="calendar-header">
       <!--       <span class="chooseMonth" id="chooseMonth">January</span> -->
@@ -42,6 +44,11 @@
     <div class="month-list"></div>
   </div>
   <script src="script.js"></script>
+  <script>
+    $(function(){
+      $("#nav-placeholder").load("http://localhost:8888/Desktop/CS_422_Green_Thumb/navbar-top.html");
+    });
+    </script>
 </body>
 
 </html>
