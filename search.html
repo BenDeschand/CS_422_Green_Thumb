@@ -8,23 +8,53 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <!-- Comment Above -->
-  
+
   <link rel="stylesheet" href="navbar-top.css">
   <link rel="stylesheet" href="search.css">
   <title>Search Page</title>
 
   <script>
+    const addPlants = new Map([
+      ["Strawberry", "strawAddBtn"],
+      ["Beets", "beetAddBtn"],
+      ["Blueberry", "blueAddBtn"],
+      ["Tomato", "tomAddBtn"],
+      ["SunFlower", "sunAddBtn"]
+    ]);
+
+    const remPlants = new Map([
+      ["Strawberry", "StrawRemBtn"],
+      ["Beets", "BeetRemBtn"],
+      ["Blueberry", "BlueRemBtn"],
+      ["Tomato", "TomRemBtn"],
+      ["Sunflower", "SunRemBtn"]
+    ]);
+
+    $(document).ready(function() {
+      $("#searchList").append(addToResults("Strawberry", addPlants.get("Strawberry")));
+      $("#searchList").append(addToResults("Beets", addPlants.get("Beets")));
+      $("#searchList").append(addToResults("Blueberry", addPlants.get("Blueberry")));
+
+      $("#plantList").append(addToPlants("Tomato", remPlants.get("Tomato")));
+      $("#plantList").append(addToPlants("Sunflower", remPlants.get("Sunflower")));
+
+      addPlants.forEach(function(value, key) {
+        var btn = "#" + String(value);
+        $(document).on('click', btn, function(evt) {
+          $("#plantList").append(addToPlants(key, remPlants.get(key)));
+        });
+      });
+
+      remPlants.forEach(function(value, key) {
+        var btn = "#" + String(value);
+        $(document).on('click', btn, function(evt) {
+          $("#searchList").append(addToResults(key, addPlants.get(key)));
+        });
+      });
+    });
+
     $(document).on('click', "#searchBtn", function(evt) {
       $("#searchResults").css("visibility", "visible");
-    });
-
-    $(document).on('click', "#addBtn", function(evt) {
-      $("#plantList").append(addToPlants("Strawberry", "removeBtn"));
-    });
-
-    $(document).on('click', "#removeBtn", function(evt) {
-      // $("#plantList").closest(addToPlants("Strawberry", "removeBtn")).remove();
-      $("#searchList").append(addToResults("Strawberry", "addBtn"));
     });
 
     function addToPlants(plant, id) {
@@ -34,6 +64,7 @@
     function addToResults(plant, id) {
       return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btnColor' type='button' id='" + String(id) + "'>Add</button></div></div></li>";
     }
+
   </script>
 </head>
 <body>
@@ -48,26 +79,6 @@
             My Plants
           </div>
           <ul class="list-group list-group-flush" id="plantList">
-            <li class="list-group-item list-group-item-dark">
-              <div class="row">
-                <div class="col-8">
-                  Blueberry
-                </div>
-                <div class="col-1">
-                  <button class="btn btnColor" type="button" id="removeBtn">Remove</button>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-dark">
-              <div class="row">
-                <div class="col-8">
-                  Beets
-                </div>
-                <div class="col-1">
-                  <button class="btn btnColor" type="button" id="removeBtn">Remove</button>
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
@@ -87,36 +98,6 @@
             Search Results
           </div>
           <ul class="list-group list-group-flush" id="searchList">
-            <li class="list-group-item list-group-item-dark">
-              <div class="row">
-                <div class="col-8">
-                  Strawberry
-                </div>
-                <div class="col-1">
-                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-dark">
-              <div class="row">
-                <div class="col-8">
-                  Blueberry
-                </div>
-                <div class="col-1">
-                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item list-group-item-dark">
-              <div class="row">
-                <div class="col-8">
-                  Beets
-                </div>
-                <div class="col-1">
-                  <button class="btn btnColor" type="button" id="addBtn">Add</button>
-                </div>
-              </div>
-            </li>
           </ul>
         </div>
       </div>
