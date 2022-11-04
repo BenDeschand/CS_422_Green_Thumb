@@ -58,19 +58,19 @@
     });
 
     function addToPlants(plant, id) {
-      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btnColor' type='button' id='" + String(id) + "'>Remove</button></div></div></li>";
+      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btn-success' type='button' id='" + String(id) + "'>Remove</button></div></div></li>";
     }
 
     function addToResults(plant, id) {
-      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btnColor' type='button' id='" + String(id) + "'>Add</button></div></div></li>";
+      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btn-success' type='button' id='" + String(id) + "'>Add</button></div></div></li>";
     }
 
   </script>
 </head>
 <body>
   <div class="container-fullwidth">
-    <!-- <div id="nav-placeholder">
-    </div> -->
+    <div id="nav-placeholder">
+    </div>
     <div class="row">
       <!-- Left Column -->
       <div class="col-3 d-flex flex-column justify-content-center colPad">
@@ -106,7 +106,7 @@
   </div>
     <script>
         $(function(){
-          $("#nav-placeholder").load("http://localhost:8888/Desktop/CS_422_Green_Thumb/navbar-top.html");
+          $("#nav-placeholder").load("https://spradh8.people.uic.edu/cs-422-group-project/navbar-top.html");
         });
     </script>
 
