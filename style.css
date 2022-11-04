@@ -252,7 +252,5 @@ label {
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {background-color: darkseagreen;}
 
-    background-color: green;
-}
 /* Calendar End */
 
