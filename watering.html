@@ -16,6 +16,8 @@
             margin-bottom: 50px;
         }
     </style>
+     <div id="nav-placeholder">
+    </div>
     <div class="row mt-5">
         <div class="col-2" id="firstColumn">
             <div class="card">
@@ -131,6 +133,11 @@
             <input class="btn btn-warning col-12 p-4" type="button" style="margin-top:10px;"value="Skip">
         </div><!--end column-->
     </div><!--end row-->
+    <script>
+        $(function(){
+          $("#nav-placeholder").load("https://spradh8.people.uic.edu/cs-422-group-project/navbar-top.html");
+        });
+        </script>
 </body>
 
 </html>
