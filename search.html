@@ -15,8 +15,21 @@
     });
 
     $(document).on('click', "#addBtn", function(evt) {
-      $("#plantList").append("<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>Strawberry</div><div class='col-1'><button class='btn btnColor' type='button' id='addBtn'>Add</button></div></div></li>");
+      $("#plantList").append(addToPlants("Strawberry", "removeBtn"));
     });
+
+    $(document).on('click', "#removeBtn", function(evt) {
+      // $("#plantList").closest(addToPlants("Strawberry", "removeBtn")).remove();
+      $("#searchList").append(addToResults("Strawberry", "addBtn"));
+    });
+
+    function addToPlants(plant, id) {
+      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btnColor' type='button' id='" + String(id) + "'>Remove</button></div></div></li>";
+    }
+
+    function addToResults(plant, id) {
+      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btnColor' type='button' id='" + String(id) + "'>Add</button></div></div></li>";
+    }
   </script>
 </head>
 <body>
@@ -28,7 +41,7 @@
       <div class="col-3 d-flex flex-column justify-content-center colPad">
         <div class="card  addArea" id="plantsAdded">
           <div class="card-header btnColor">
-            Featured
+            My Plants
           </div>
           <ul class="list-group list-group-flush" id="plantList">
             <li class="list-group-item list-group-item-dark">
@@ -37,7 +50,7 @@
                   Blueberry
                 </div>
                 <div class="col-1">
-                  <button class="btn btnColor" type="button" id="RemoveBtn">Remove</button>
+                  <button class="btn btnColor" type="button" id="removeBtn">Remove</button>
                 </div>
               </div>
             </li>
@@ -47,7 +60,7 @@
                   Beets
                 </div>
                 <div class="col-1">
-                  <button class="btn btnColor" type="button" id="RemoveBtn">Remove</button>
+                  <button class="btn btnColor" type="button" id="removeBtn">Remove</button>
                 </div>
               </div>
             </li>
@@ -66,7 +79,10 @@
         </div>
         <br>
         <div class="card respArea" id="searchResults">
-          <ul class="list-group list-group-flush">
+          <div class="card-header btnColor">
+            Search Results
+          </div>
+          <ul class="list-group list-group-flush" id="searchList">
             <li class="list-group-item list-group-item-dark">
               <div class="row">
                 <div class="col-8">
