@@ -13,7 +13,9 @@ const data = new Map([
     ["Tomato", 4],
     ["Sunflower", 5]
   ]);
-const myPlants = new Set(["Tomato","Blueberry"]);
+// const myPlants = new Set(["Tomato","Blueberry"]);
+const myPlants = new Set([localStorage.getItem("myPlants")]);
+
 
 //sets the current date from the history
 function changeDate(date){

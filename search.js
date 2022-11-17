@@ -18,6 +18,8 @@ const data = new Map([
 
   const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
 
+  localStorage.setItem("myPlants", "Tomato");
+
   // sets the data up for the search page
   $(document).ready(function() {
     for(const k of data.keys()) {
