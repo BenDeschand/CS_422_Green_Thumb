@@ -13,6 +13,8 @@ const data = new Map([
     ["Tomato", 4],
     ["Sunflower", 5]
   ]);
+
+const myPlants = new Set();
 //parse incoming list
 var plants = localStorage.getItem("myPlants").split(",");
 
