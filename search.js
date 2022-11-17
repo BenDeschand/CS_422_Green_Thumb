@@ -6,11 +6,11 @@
 
 // plant data
 const data = new Map([
-    ["Strawberry", ["Once Daily", "Bugs", "Stawbuculo"]],
-    ["Beets", ["Twice Daily", "Rugs", "Beetbuculo"]],
-    ["Blueberry", ["Thrice Daily", "Mugs", "Bluebuculo"]],
-    ["Tomato", ["Fource Daily", "Chugs", "Tombuculo"]],
-    ["Sunflower", ["Frice Daily", "Pugs", "Sunbuculo"]]
+    ["Strawberry", ["Every Day", "Bugs", "Stawbuculo"]],
+    ["Beets", ["Every Two Days", "Rugs", "Beetbuculo"]],
+    ["Blueberry", ["Every Three Days", "Mugs", "Bluebuculo"]],
+    ["Tomato", ["Every Four Days", "Chugs", "Tombuculo"]],
+    ["Sunflower", ["Every Five Days", "Pugs", "Sunbuculo"]]
   ]);
 
   const addPlants = new Map();   // maps plants to their add button ids
