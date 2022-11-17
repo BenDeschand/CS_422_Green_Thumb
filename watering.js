@@ -13,8 +13,15 @@ const data = new Map([
     ["Tomato", 4],
     ["Sunflower", 5]
   ]);
-// const myPlants = new Set(["Tomato","Blueberry"]);
-const myPlants = new Set([localStorage.getItem("myPlants")]);
+//parse incoming list
+var plants = localStorage.getItem("myPlants").split(",");
+
+for(var plant of plants){
+    if(plant!=""){
+        myPlants.add(plant);
+    }
+}
+
 for(const x of myPlants){
     if((parseInt(currentDay,10)) % data.get(x)==0){
         $(todo).append("<li class='list-group-item list-group-item-info'>"+x+"</li>");
@@ -38,7 +45,7 @@ for(var i = 1; i<=4; i++){
         $("#img"+i).attr("src",'./images/rain.svg')
     }
     $("#list"+i).children().remove();
-    
+
     for(const x of myPlants){
 
         if((parseInt(currentDay,10)+i-1) % data.get(x)==0){

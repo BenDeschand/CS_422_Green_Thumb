@@ -18,7 +18,9 @@ const data = new Map([
 
   const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
 
-  localStorage.setItem("myPlants", "Tomato");
+  var send = "Tomato,Sunflower,";
+
+  localStorage.setItem("myPlants", send);
 
   // sets the data up for the search page
   $(document).ready(function() {
@@ -37,7 +39,8 @@ const data = new Map([
         $("#plantList").append(addToPlants(key, data.get(key)[0], data.get(key)[1], data.get(key)[2], remPlants.get(key)));
         $(this).closest("li").remove();
         myPlants.add(String(key));
-        localStorage.setItem("myPlants", String(key));
+        send.append(String(key) + ",");
+        localStorage.setItem("myPlants", send);
         resetSearch();
         $("#searchIn").val("");
         });
@@ -49,6 +52,8 @@ const data = new Map([
         $(document).on('click', btn, function(evt) {
         $(this).closest("tr").remove();
         myPlants.delete(String(key));
+        updateToSend();
+        localStorage.setItem("myPlants", send);
         resetMyPlants();
         $("#myPlantsSearch").val("");
         });
@@ -93,6 +98,13 @@ function searchResults() {
     }
     else {
         resetSearch();
+    }
+}
+
+function updateToSend() {
+    send = ""
+    for(const plant of myPlants.values()) {
+        send.append(String(plant) + ",");
     }
 }
 
