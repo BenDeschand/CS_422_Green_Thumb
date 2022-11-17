@@ -37,6 +37,7 @@ const data = new Map([
         $("#plantList").append(addToPlants(key, data.get(key)[0], data.get(key)[1], data.get(key)[2], remPlants.get(key)));
         $(this).closest("li").remove();
         myPlants.add(String(key));
+        localStorage.setItem("myPlants", String(key));
         resetSearch();
         $("#searchIn").val("");
         });
