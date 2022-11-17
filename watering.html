@@ -18,92 +18,113 @@
     </style>
      <div id="nav-placeholder">
     </div>
+    
     <div class="row mt-5">
-        <div class="col-2" id="firstColumn">
-            <div class="card">
-                <div class="card-header"
-                 style="background-color: greenyellow;text-align:center;font-size:x-large;"
-                >Watering History
+        <div class="col-3">
+            <div class="card" style="background-color: greenyellow;">
+                <div id="infoCard" class="card-header " style="font-size:x-large;">Today is 1/12
                 </div>
-                <ul class="list-group list-group-flush">
-                    <li class="list-group-item list-group-item-info">1/8 Watered</li>
-                    <li class="list-group-item list-group-item-info">1/9 Watered</li>
-                    <li class="list-group-item list-group-item-primary">1/10 Rained</li>
-                    <li class="list-group-item list-group-item-danger">1/11 skippid</li>
-                  </ul>
-            </div><!-- end card-->
-        </div><!--end  first colum-->
+                <div class="card">
+                    <div class="card-header">
+                        Needs Watering:
+                    </div>
+                    <ul id="todo" class="list-group list-group-flush">
+                        <li class="list-group-item list-group-item-info">Strawberry</li>
+                        <li class="list-group-item list-group-item-info">Beets</li>
+                </div>
 
+            </div>
+            <input class="btn btn-info col-12 p-4" type="button" style="margin-top:10px;" onclick="setAction('watered')" value="Watered">
+            <input class="btn btn-warning col-12 p-4" type="button" style="margin-top:10px;" onclick="setAction('skipped')" value="Skip">
+            <input class="btn btn-primary col-12 p-4" type="button" style="margin-top:10px;" onclick="setAction('rained')" value="Rained">
+        </div><!--end column-->
 
         <div class="col-7" id="firstColumn">
             <div class="row">
                 <div class=" col-3">
                     <div class="card">
-                        <div class="card-header"
+                        <div id="day1" class="card-header"
                         style="background-color: greenyellow;text-align:center;font-size:x-large;"
                         >1/11
                         </div>
                         <img 
-                            id="picsunflower"
+                            id="img1"
                             src="./images/cloudy.svg" 
                             class = "card-img-top"
-                            draggable="true"
-                            ondragstart="onDragStart(event);"
-                            ondragend="onDragEnd(event);" 
                             height="80" 
                             width="80">
+
+                    <div class="card">
+                        <div class="card-header">
+                            Needs Watering:
+                        </div>
+                        <ul id="list1" class="list-group list-group-flush">
+                            <li class="list-group-item list-group-item-info">Sunflower</li>
                     </div>
+                </div>
             </div>
             <div class=" col-3">
-                <div class="card">
-                    <div class="card-header"
+                <div  class="card">
+                    <div id="day2" class="card-header"
                     style="background-color: greenyellow;text-align:center;font-size:x-large;"
                     >1/12
                     </div>
                     <img 
-                        id="picsunflower"
+                        id="img2"
                         src="./images/sun.svg" 
-                        class = "card-img-top"
-                        draggable="true"
-                        ondragstart="onDragStart(event);"
-                        ondragend="onDragEnd(event);" 
+                        class = "card-img-top" 
                         height="80" 
                         width="80">
-                </div>
+                        <div class="card">
+                            <div class="card-header">
+                                Needs Watering:
+                            </div>
+                            <ul id="list2" class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-info">Sunflower</li>
+                        </div>
+                    </div>
             </div>
-            <div class=" col-3">
+            <div  class=" col-3">
                 <div class="card">
-                    <div class="card-header"
+                    <div  id="day3" class="card-header"
                     style="background-color: greenyellow;text-align:center;font-size:x-large;"
                     >1/13
                     </div>
                     <img 
-                        id="picsunflower"
+                        id="img3"
                         src="./images/part_sun.svg" 
                         class = "card-img-top"
-                        draggable="true"
-                        ondragstart="onDragStart(event);"
-                        ondragend="onDragEnd(event);" 
                         height="80" 
                         width="80">
-                </div>
+                        <div class="card">
+                            <div class="card-header">
+                                Needs Watering:
+                            </div>
+                            <ul id="list3" class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-info">Sunflower</li>
+                        </div>
+                    </div>
             </div>
-            <div class=" col-3">
-                <div class="card">
-                    <div class="card-header"
+            <div  class=" col-3">
+                <div  class="card">
+                    <div id="day4" class="card-header"
                     style="background-color: greenyellow;text-align:center;font-size:x-large;"
                     >1/14
                     </div>
                     <img 
-                        id="picsunflower"
+                        id="img4"
                         src="./images/rain.svg" 
                         class = "card-img-top"
-                        draggable="true"
-                        ondragstart="onDragStart(event);"
-                        ondragend="onDragEnd(event);" 
                         height="80" 
                         width="80">
-                </div>
+                        <div class="card">
+                            <div class="card-header">
+                                Needs Watering:
+                            </div>
+                            <ul id="list4" class="list-group list-group-flush">
+                                <li class="list-group-item list-group-item-info">None</li>
+                        </div>
+                    </div>
             </div>
         </div><!--end row-->
         <div class="row mt-5">
@@ -124,20 +145,36 @@
         </div><!--end row-->
         </div><!--end column-->
 
+        <div class="col-2" id="firstColumn">
+            <div class="card">
+                <div class="card-header"
+                 style="background-color: greenyellow;text-align:center;font-size:x-large;"
+                >Watering History
+                </div>
+                <!-- <ul class="list-group list-group-flush">
+                    <li class="list-group-item list-group-item-info">1/8 Watered</li>
+                    <li class="list-group-item list-group-item-info">1/9 Watered</li>
+                    <li class="list-group-item list-group-item-primary">1/10 Rained</li>
+                    <li class="list-group-item list-group-item-danger">1/11 skippid</li>
+                  </ul> -->
+                  <div class="btn-group-vertical">
+                        <button type="button" class="btn list-group-item-info border border-info" style="text-align:left;" id="8" onclick="changeDate('8')">1/8 Watered</button>
+                        <button type="button" class="btn list-group-item-info border border-info" style="text-align:left;" id="9" onclick="changeDate('9')">1/9 Watered</button>
+                        <button type="button" class="btn btn-primary list-group-item-primary border border-primary" style="text-align:left;" id="10" onclick="changeDate('10')">1/10 Rained</button>
+                        <button type="button" class="btn btn-warning list-group-item-warning border border-warning" style="text-align:left;" id="11" onclick="changeDate('11')">1/11 Skipped</button>
+                        <button type="button" class="btn list-group-item-secondary border border-secondary" style="text-align:left;" id="12" onclick="changeDate('12')">1/12 Today!</button>
+                  </div>
+            </div><!-- end card-->
+        </div><!--end  first colum-->
         
-        <div class="col">
-            <div class="card list-group-item-info">
-                <div class="card-body" style="font-size:x-large;">You Should Water Today</div>
-            </div>
-            <input class="btn btn-info col-12 p-4" type="button" style="margin-top:10px;"value="Watered">
-            <input class="btn btn-warning col-12 p-4" type="button" style="margin-top:10px;"value="Skip">
-        </div><!--end column-->
     </div><!--end row-->
+    <script src="watering.js"></script>
     <script>
         $(function(){
           $("#nav-placeholder").load("navbar-top.html");
         });
         </script>
+
 </body>
 
 </html>
