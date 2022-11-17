@@ -1,6 +1,6 @@
 /* Search */
 .colPad {
-    padding-top: 15%;
+    padding-top: 5%;
     padding-left: 2%;
     align-items: center;
 }
@@ -19,7 +19,7 @@
     padding-left: 10%;
 }
 
-.btnColor {
+.searchColor {
     background-color: greenyellow;
 }
 
