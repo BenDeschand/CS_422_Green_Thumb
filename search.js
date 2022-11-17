@@ -20,7 +20,7 @@ const data = new Map([
 
   var send = "Tomato,Sunflower,";
 
-  sessionStorage.setItem("myPlants", send);
+  localStorage.setItem("myPlants", send);
 
   // sets the data up for the search page
   $(document).ready(function() {
@@ -40,7 +40,7 @@ const data = new Map([
         $(this).closest("li").remove();
         myPlants.add(String(key));
         send.append(String(key) + ",");
-        sessionStorage.setItem("myPlants", send);
+        localtorage.setItem("myPlants", send);
         resetSearch();
         $("#searchIn").val("");
         });
@@ -53,7 +53,7 @@ const data = new Map([
         $(this).closest("tr").remove();
         myPlants.delete(String(key));
         updateToSend();
-        sessionStorage.setItem("myPlants", send);
+        localStorage.setItem("myPlants", send);
         resetMyPlants();
         $("#myPlantsSearch").val("");
         });

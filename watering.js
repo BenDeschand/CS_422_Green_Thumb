@@ -16,7 +16,7 @@ const data = new Map([
 
 const myPlants = new Set();
 //parse incoming list
-var plants = sessionStorage.getItem("myPlants").split(",");
+var plants = localStorage.getItem("myPlants").split(",");
 
 for(var plant of plants){
     if(plant!=""){
