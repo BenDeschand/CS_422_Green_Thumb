@@ -6,12 +6,13 @@ function changeDate(date){
     console.log(currentDay);
 
     if(currentDay==today){
-        $(infoCard).html("Today is 1/" + date +"<div class='card-header'>Needs Watering:</div>");
-        $(infoCard).append("<ul class='list-group list-group-flush'><li class='list-group-item list-group-item-info'>Sunflower</li>")
+        $(infoCard).html("Today is 1/" + date );
+        $(todo).children().remove();
+        $(todo).append("<li class='list-group-item list-group-item-info'>Sunflower</li>")
     } else{
        $(infoCard).html("Now editing 1/" + date);
-       $(infoCard).append("<div class='card-header'>Needed Watering:</div>")
-       $(infoCard).append("<ul class='list-group list-group-flush'><li class='list-group-item list-group-item-info'>Sunflower</li>")
+       $(todo).children().remove();
+       $(todo).append("<li class='list-group-item list-group-item-info'>Sunflower</li>")
     }  
 }
 
