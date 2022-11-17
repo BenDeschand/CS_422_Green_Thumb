@@ -40,7 +40,7 @@ const data = new Map([
         $(this).closest("li").remove();
         myPlants.add(String(key));
         send.append(String(key) + ",");
-        localtorage.setItem("myPlants", send);
+        localStorage.setItem("myPlants", send);
         resetSearch();
         $("#searchIn").val("");
         });
