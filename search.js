@@ -16,9 +16,25 @@ const data = new Map([
   const addPlants = new Map();   // maps plants to their add button ids
   const remPlants = new Map();   // maps plants to their remove button ids
 
-  const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
+const myPlants = new Set();
+var send = "";
+//parse incoming list
+var plants = localStorage.getItem("myPlants").split(",");
 
-  var send = "Tomato,Sunflower,";
+if(plants.length != 0) {
+    for(var plant of plants){
+        if(plant!=""){
+            send.append(plant + ",");
+            myPlants.add(plant);
+        }
+    }   
+} else {
+    send = "Tomato,Sunflower";
+}
+
+//   const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
+
+//   var send = "Tomato,Sunflower,";
 
   localStorage.setItem("myPlants", send);
 
