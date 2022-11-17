@@ -22,4 +22,9 @@
 .btnColor {
     background-color: greenyellow;
 }
+
+.bold {
+    font-weight: bold;
+    font-size: large;
+}
 /* Search End */

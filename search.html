@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
   <!-- Comment Above -->
 
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">   
+
   <link rel="stylesheet" href="navbar-top.css">
   <link rel="stylesheet" href="search.css">
   <title>Search Page</title>
@@ -103,12 +105,12 @@
 
     // adds results to my plants list
     function addToPlants(plant, water, pest, dis, id) {
-      return "<tr class='table-secondary'><td>" + String(plant) + "</td><td>" + String(water) + "</td><td>" + String(pest) + "</td><td>" + String(dis) + "</td><td><button class='btn btn-success' type='button' id='" + String(id) + "'>Remove</button></td></tr>"
+      return "<tr class='table-secondary'><td>" + String(plant) + "</td><td>" + String(water) + "</td><td>" + String(pest) + "</td><td>" + String(dis) + "</td><td><button class='btn btn-danger bold' type='button' id='" + String(id) + "'><span class='bi bi-trash'></span></button></td></tr>"
     }
 
     // adds results to search list
     function addToResults(plant, id) {
-      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btn-success' type='button' id='" + String(id) + "'>Add</button></div></div></li>";
+      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btn-success bold' type='button' id='" + String(id) + "'>+</button></div></div></li>";
     }
 
     // resets the search list to show no results
@@ -156,11 +158,11 @@
           <table class="table table-bordered">
             <thead>
               <tr class="table-secondary">
-                <th scope="col">Number</th>
                 <th scope="col">Plants</th>
                 <th scope="col">Watering</th>
                 <th scope="col">Pest</th>
                 <th scope="col">Disease</th>
+                <th></th>
               </tr>
             </thead>
             <tbody id="plantList">
