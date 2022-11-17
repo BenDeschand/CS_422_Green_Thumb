@@ -15,7 +15,38 @@ const data = new Map([
   ]);
 // const myPlants = new Set(["Tomato","Blueberry"]);
 const myPlants = new Set([localStorage.getItem("myPlants")]);
+for(const x of myPlants){
+    if((parseInt(currentDay,10)) % data.get(x)==0){
+        $(todo).append("<li class='list-group-item list-group-item-info'>"+x+"</li>");
+        console.log("adding "+ x);
+    }
+}
 
+for(var i = 1; i<=4; i++){
+    $("#day"+i).html("1/"+(parseInt(currentDay,10)+i-1));
+    const curWeather = weather[(parseInt(currentDay,10)+i-1)];
+    if(curWeather =="sun"){
+        $("#img"+i).attr("src",'./images/sun.svg')
+    }
+    if(curWeather =="cloud"){
+        $("#img"+i).attr("src",'./images/cloudy.svg')
+    }
+    if(curWeather =="partsun"){
+        $("#img"+i).attr("src",'./images/part_sun.svg')
+    }
+    if(curWeather =="rain"){
+        $("#img"+i).attr("src",'./images/rain.svg')
+    }
+    $("#list"+i).children().remove();
+    
+    for(const x of myPlants){
+
+        if((parseInt(currentDay,10)+i-1) % data.get(x)==0){
+            $("#list"+i).append("<li class='list-group-item list-group-item-info'>"+x+"</li>");
+            console.log("adding "+ x);
+        }
+    }
+}
 
 //sets the current date from the history
 function changeDate(date){
