@@ -11,115 +11,11 @@
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">   
 
-  <link rel="stylesheet" href="navbar-top.css">
+  <!-- <link rel="stylesheet" href="navbar-top.css"> -->
   <link rel="stylesheet" href="search.css">
   <title>Search Page</title>
 
-  <script>
-    // plant data
-    const data = new Map([
-      ["Strawberry", ["Once Daily", "Bugs", "Stawbuculo"]],
-      ["Beets", ["Twice Daily", "Rugs", "Beetbuculo"]],
-      ["Blueberry", ["Thrice Daily", "Mugs", "Bluebuculo"]],
-      ["Tomato", ["Fource Daily", "Chugs", "Tombuculo"]],
-      ["Sunflower", ["Frice Daily", "Pugs", "Sunbuculo"]]
-    ]);
-
-    const addPlants = new Map();   // maps plants to their add button ids
-    const remPlants = new Map();   // maps plants to their remove button ids
-
-    const myPlants = new Set();    // set of plants already added to my plants
-
-    // sets the data up for the search page
-    $(document).ready(function() {
-      for(const k of data.keys()) {
-        addPlants.set(k, String(k) + "AddBtn");
-        remPlants.set(k, String(k) + "RemBtn")
-      }
-
-      resetSearch();
-
-      $("#plantList").append(addToPlants("Tomato",  data.get("Tomato")[0], data.get("Tomato")[1], data.get("Tomato")[2], remPlants.get("Tomato")));
-      myPlants.add("Tomato");
-      $("#plantList").append(addToPlants("Sunflower",  data.get("Sunflower")[0], data.get("Sunflower")[1], data.get("Sunflower")[2], remPlants.get("Sunflower")));
-      myPlants.add("Sunflower");
-
-      // event listeners for add buttons
-      addPlants.forEach(function(value, key) {
-        var btn = "#" + String(value);
-        $(document).on('click', btn, function(evt) {
-          $("#plantList").append(addToPlants(key, data.get(key)[0], data.get(key)[1], data.get(key)[2], remPlants.get(key)));
-          $(this).closest("li").remove();
-          myPlants.add(String(key));
-          resetSearch();
-          $("#searchIn").val("");
-        });
-      });
-
-      // event listeners for remove buttons
-      remPlants.forEach(function(value, key) {
-        var btn = "#" + String(value);
-        $(document).on('click', btn, function(evt) {
-          $(this).closest("tr").remove();
-          myPlants.delete(String(key));
-        });
-      });
-    });
-
-    // event listener for search button
-    $(document).on('click', "#searchBtn", function(evt) {
-      searchResults();
-    });
-
-    // event listener for the input form
-    $(document).on('keyup', "#searchIn", function(evt) {
-      searchResults();
-    });
-
-    // searches for plants based on input and adds them to search list
-    function searchResults() {
-      var input = String($("#searchIn").val());
-      console.log(input);
-      if(input.length > 0) {
-        var found = false;
-        $("#searchList").html("");
-        const regEx = new RegExp(input, "gi");
-
-        for(const k of data.keys()) {
-          if(k.search(regEx) > -1) {
-            if(!myPlants.has(String(k))) {
-              found = true;
-              $("#searchList").append(addToResults(k, addPlants.get(k)));
-            }
-          }
-        }
-
-        if(!found) {
-          resetSearch();
-        }
-      }
-      else {
-       resetSearch();
-      }
-    }
-
-    // adds results to my plants list
-    function addToPlants(plant, water, pest, dis, id) {
-      return "<tr class='table-secondary'><td>" + String(plant) + "</td><td>" + String(water) + "</td><td>" + String(pest) + "</td><td>" + String(dis) + "</td><td><button class='btn btn-danger bold' type='button' id='" + String(id) + "'><span class='bi bi-trash'></span></button></td></tr>"
-    }
-
-    // adds results to search list
-    function addToResults(plant, id) {
-      return "<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>" + String(plant) + "</div><div class='col-1'><button class='btn btn-success bold' type='button' id='" + String(id) + "'>+</button></div></div></li>";
-    }
-
-    // resets the search list to show no results
-    function resetSearch() {
-      $("#searchList").html("");
-      $("#searchList").append("<li class='list-group-item list-group-item-dark'><div class='row'><div class='col-8'>No Results</div></div></li>");
-    }
-
-  </script>
+  <script src="search.js"></script>
 </head>
 <body>
   <div id="nav-placeholder">
@@ -133,14 +29,14 @@
       <div class="col-4 d-flex flex-column justify-content-center colPad">
         <div class="input-group mb-3">
           <div class="input-group-prepend">
-            <button class="btn btnColor" type="button" id="searchBtn">Search</button>
+            <button class="btn" style="background-color: greenyellow;" type="button" id="searchBtn">&#8981;</button>
           </div>
           <input type="text" class="form-control" placeholder="Ex: Strawberry" aria-label="Example text with button addon" aria-describedby="button-addon1" id="searchIn">
         </div>
         <br>
         <div class="card respArea" id="searchResults">
           <ul class="list-group list-group-flush">
-          <div class="card-header btnColor">
+          <div class="card-header" style="background-color: greenyellow;">
             Search Results
           </div>
           <ul class="list-group list-group-flush" id="searchList">
@@ -152,8 +48,15 @@
       <!-- Right Column -->
       <div class="col-8 d-flex flex-column justify-content-center colPad">
         <div class="card  addArea" id="plantsAdded">
-          <div class="card-header btnColor">
-            My Plants
+          <div class="card-header" style="background-color: greenyellow;">
+            <div class="row">
+              <div class="col-7">
+                My Plants
+              </div>
+              <div class="col-5">
+                <input type="text" class="form-control" placeholder="Ex: Strawberry" id="myPlantsSearch">
+              </div>
+            </div>
           </div>
           <table class="table table-bordered">
             <thead>
@@ -176,14 +79,14 @@
   </div>
     <script>
         $(function(){
-          $("#nav-placeholder").load("https://spradh8.people.uic.edu/cs-422-group-project/navbar-top.html");
+          $("#nav-placeholder").load("navbar-top.html");
         });
         
     </script> 
 
     <!-- Remember to comment line below out -->
-    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script> -->
     <!-- Comment Above -->
 
