@@ -19,19 +19,19 @@ const data = new Map([
 const myPlants = new Set();
 var send = "";
 //parse incoming list
+if(localStorage.getItem("myPlants")!=null){
 var plants = localStorage.getItem("myPlants").split(",");
 
-if(plants.length != 0) {
     console.log("in if");
     for(var plant of plants){
         console.log("in for");
         if(plant!=""){
             console.log("if in for");
-            send.append(plant + ",");
+            send+=(plant + ",");
             myPlants.add(plant);
         }
     }   
-} else {
+} else{
     send = "Tomato,Sunflower";
     myPlants.add("Tomato");
     myPlants.add("Sunflower");
