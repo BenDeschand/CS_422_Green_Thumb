@@ -30,6 +30,8 @@ if(plants.length != 0) {
     }   
 } else {
     send = "Tomato,Sunflower";
+    myPlants.add("Tomato");
+    myPlants.add("Sunflower");
 }
 
 //   const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
