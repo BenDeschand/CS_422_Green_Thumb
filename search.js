@@ -22,8 +22,11 @@ var send = "";
 var plants = localStorage.getItem("myPlants").split(",");
 
 if(plants.length != 0) {
+    console.log("in if");
     for(var plant of plants){
+        console.log("in for");
         if(plant!=""){
+            console.log("if in for");
             send.append(plant + ",");
             myPlants.add(plant);
         }
