@@ -16,28 +16,28 @@ const data = new Map([
   const addPlants = new Map();   // maps plants to their add button ids
   const remPlants = new Map();   // maps plants to their remove button ids
 
-const myPlants = new Set();
+// const myPlants = new Set();
 var send = "";
 //parse incoming list
-if(localStorage.getItem("myPlants")!=null){
-var plants = localStorage.getItem("myPlants").split(",");
+// if(localStorage.getItem("myPlants")!=null){
+// var plants = localStorage.getItem("myPlants").split(",");
 
-    console.log("in if");
-    for(var plant of plants){
-        console.log("in for");
-        if(plant!=""){
-            console.log("if in for");
-            send+=(plant + ",");
-            myPlants.add(plant);
-        }
-    }   
-} else{
-    send = "Tomato,Sunflower";
-    myPlants.add("Tomato");
-    myPlants.add("Sunflower");
-}
+//     console.log("in if");
+//     for(var plant of plants){
+//         console.log("in for");
+//         if(plant!=""){
+//             console.log("if in for");
+//             send+=(plant + ",");
+//             myPlants.add(plant);
+//         }
+//     }   
+// } else{
+//     send = "Tomato,Sunflower";
+//     myPlants.add("Tomato");
+//     myPlants.add("Sunflower");
+// }
 
-//   const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
+const myPlants = new Set(["Tomato", "Sunflower"]);    // set of plants already added to my plants
 
 //   var send = "Tomato,Sunflower,";
 

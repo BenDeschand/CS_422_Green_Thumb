@@ -14,15 +14,16 @@ const data = new Map([
     ["Sunflower", 5]
   ]);
 
-const myPlants = new Set();
-//parse incoming list
-var plants = localStorage.getItem("myPlants").split(",");
+const myPlants = new Set(["Tomato", "Sunflower","Beets"]); 
+// const myPlants = new Set();
+// //parse incoming list
+// var plants = localStorage.getItem("myPlants").split(",");
 
-for(var plant of plants){
-    if(plant!=""){
-        myPlants.add(plant);
-    }
-}
+// for(var plant of plants){
+//     if(plant!=""){
+//         myPlants.add(plant);
+//     }
+// }
 
 for(const x of myPlants){
     if((parseInt(currentDay,10)) % data.get(x)==0){
